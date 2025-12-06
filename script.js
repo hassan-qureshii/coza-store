@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ===== BANNER CARD CLICK ALERT =====
   const bannerCards = document.querySelectorAll('section .card');
   bannerCards.forEach((card, index) => {
     card.addEventListener('click', () => {

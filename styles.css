@@ -251,136 +251,6 @@ section .card:nth-child(3):hover {
   }
 }
 
-
-
-
-
-
-
-
-
-footer{
-    background-color:#111;
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:space-around;
-    color:#bbb;
-    font-family:'Poppins', sans-serif;
-    padding:40px 20px;
-}
-
-footer h1{
-    font-size:1.6rem;
-    font-weight:600;
-    color:#fff;
-    margin-bottom:20px;
-    position:relative;
-}
-
-footer h1::after{
-    content:"";
-    display:block;
-    width:40px;
-    height:3px;
-    background:lightskyblue;
-    margin-top:8px;
-    border-radius:2px;
-}
-
-footer ul{
-    list-style:none;
-    padding:0;
-}
-
-footer li a{
-    color:#bbb;
-    line-height:32px;
-    font-size:16px;
-    text-decoration:none;
-    transition:color 0.3s ease;
-}
-
-footer li a:hover{
-    color:lightskyblue;
-}
-
-.footer-child{
-    flex:1 1 220px;
-    margin:20px;
-}
-
-.footer-child p{
-    font-size:14px;
-    line-height:22px;
-    color:#ccc;
-}
-
-.social-icons a{
-    margin:0 8px;
-    font-size:22px;
-    color:#fff;
-    transition:transform 0.3s ease, color 0.3s ease;
-}
-
-.social-icons a:hover{
-    color:lightskyblue;
-    transform:scale(1.2);
-}
-
-.footer-child input{
-    width:80%;
-    padding:10px;
-    border:2px solid #444;
-    border-radius:5px;
-    margin-bottom:15px;
-    background:#222;
-    color:#fff;
-    text-align:center;
-    transition:border 0.3s ease;
-}
-
-.footer-child input:focus{
-    border:2px solid lightskyblue;
-    outline:none;
-}
-
-.footer-child button{
-    background:lightskyblue;
-    border:none;
-    border-radius:50px;
-    width:150px;
-    height:40px;
-    text-align:center;
-    color:#111;
-    font-weight:600;
-    cursor:pointer;
-    transition:background 0.3s ease, transform 0.3s ease;
-}
-
-.footer-child button:hover{
-    background:#fff;
-    transform:scale(1.05);
-}
-
-.last{
-    padding:10px;
-    text-align:center;
-    color:#111;
-    background-color:#ccc;
-    font-family:'Poppins', sans-serif;
-    font-size:14px;
-}
-
-
-
-
-
-
-
-
-
-
-
 /* Product Heading */
 .product-h1{
     font-size:3rem; 
@@ -559,3 +429,115 @@ main{
     }        
 }
 
+/* footer */
+footer{
+    background-color:#111;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-around;
+    color:#bbb;
+    font-family:'Poppins', sans-serif;
+    padding:40px 20px;
+}
+
+footer h1{
+    font-size:1.6rem;
+    font-weight:600;
+    color:#fff;
+    margin-bottom:20px;
+    position:relative;
+}
+
+footer h1::after{
+    content:"";
+    display:block;
+    width:40px;
+    height:3px;
+    background:lightskyblue;
+    margin-top:8px;
+    border-radius:2px;
+}
+
+footer ul{
+    list-style:none;
+    padding:0;
+}
+
+footer li a{
+    color:#bbb;
+    line-height:32px;
+    font-size:16px;
+    text-decoration:none;
+    transition:color 0.3s ease;
+}
+
+footer li a:hover{
+    color:lightskyblue;
+}
+
+.footer-child{
+    flex:1 1 220px;
+    margin:20px;
+}
+
+.footer-child p{
+    font-size:14px;
+    line-height:22px;
+    color:#ccc;
+}
+
+.social-icons a{
+    margin:0 8px;
+    font-size:22px;
+    color:#fff;
+    transition:transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover{
+    color:lightskyblue;
+    transform:scale(1.2);
+}
+
+.footer-child input{
+    width:80%;
+    padding:10px;
+    border-bottom:2px solid #444;
+    border-radius:100px;
+    margin-bottom:15px;
+    background:#222;
+    color:#fff;
+    text-align:center;
+    transition:border 0.3s ease;
+}
+
+.footer-child input:focus{
+    border:2px solid lightskyblue;
+    outline:none;
+}
+
+.footer-child button{
+    background:lightskyblue;
+    border:none;
+    border-radius:50px;
+    width:150px;
+    height:40px;
+    text-align:center;
+    color:#111;
+    font-weight:600;
+    cursor:pointer;
+    transition:background 0.3s ease, transform 0.3s ease;
+}
+
+.footer-child button:hover{
+    background:#fff;
+    transform:scale(1.05);
+}
+
+.last{
+    padding:10px;
+    text-align:center;
+    color:#111;
+    background-color:#ccc;
+    font-family:'Poppins', sans-serif;
+    font-size:14px;
+}

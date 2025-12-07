@@ -89,71 +89,131 @@ body.dark-mode section .overlay p { color: #f0f0f0; }
     justify-content: space-between;
   }
 }
-
-/* Sidebar (mobile) */
+/* 1. MOBILE SIDEBAR BASE STYLES (Slide-in from Right) */
 .sidebar {
-  position: fixed;
-  top: 0;
-  right: -320px;
-  width: 300px;
-  height: 100vh;
-  background: #fff;
-  box-shadow: -4px 0 14px rgba(0,0,0,0.15);
-  z-index: 1200;
-  display: flex;
-  flex-direction: column;
-  transition: right 0.4s ease, transform 0.4s ease;
+    position: fixed;
+    top: 0;
+    /* Start off-screen to the right (Adjust width if needed, e.g., 300px) */
+    right: -320px; 
+    width: 300px;
+    max-width: 90%; /* Safety check for very small screens */
+    height: 100vh;
+    background: #fff;
+    box-shadow: -4px 0 14px rgba(0, 0, 0, 0.15);
+    z-index: 2000; /* Ensure it's above everything else */
+    display: flex;
+    flex-direction: column;
+    /* Use 'right' for positioning and 'transform' for smooth movement */
+    transition: right 0.4s ease, background-color 0.3s ease; 
 }
+
 .sidebar.open {
-  right: 0;
+    right: 0;
 }
+
 .sidebar-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 20px;
-  border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid #eee;
+    background-color: inherit; /* Inherit background for dark mode consistency */
 }
 .sidebar-header img {
-  width: 140px;
-  height: auto;
+    width: 140px;
+    height: auto;
 }
 .close-sidebar {
-  background: none;
-  border: none;
-  font-size: 22px;
-  cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: #333; /* Default icon color */
+}
+.sidebar-nav {
+    flex-grow: 1; /* Allows navigation to take up available space */
+    background-color: inherit;
 }
 .sidebar-nav ul {
-  list-style: none;
-  padding: 20px;
+    list-style: none;
+    padding: 20px;
+    margin: 0;
 }
 .sidebar-nav li {
-  margin-bottom: 14px;
+    margin-bottom: 14px;
 }
 .sidebar-nav a {
-  text-decoration: none;
-  color: #333;
-  font-size: 16px;
-  font-weight: 500;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    display: block; /* Makes the whole area clickable */
 }
 .sidebar-icons {
-  margin-top: auto;
-  padding: 16px 20px;
-  border-top: 1px solid #eee;
-  display: flex;
-  align-items: center;
-  gap: 20px;
+    margin-top: auto; /* Push icons to the bottom */
+    padding: 16px 20px;
+    border-top: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: inherit;
 }
+.sidebar-icons i {
+    color: #333; /* Default icon color */
+}
+
+/* 3. MEDIA QUERIES (Mobile visibility logic) */
+
+/* Hide the menu button and show the desktop menu on screens >= 768px (md) */
+@media (min-width: 768px) {
+    .sidebar {
+        display: none; /* Hide the mobile sidebar entirely */
+    }
+    /* Ensure the desktop navbar and icons are visible */
+    .navbar, .icons {
+        display: flex !important;
+    }
+    .menu-btn {
+        display: none !important;
+    }
+}
+
+/* On screens < 768px, hide desktop menu and show mobile button */
+@media (max-width: 767px) {
+    .navbar, .icons {
+        display: none !important;
+    }
+    .menu-btn {
+        display: block !important;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+}
+
+/* 4. DARK MODE STYLES (CORRECTED) */
+
 body.dark-mode .sidebar {
-  background: #222;
+    background: #333; /* Using the slightly darker tone for sidebar body */
+    color: #f0f0f0;
+}
+body.dark-mode .sidebar-header {
+    border-bottom-color: #444;
+}
+body.dark-mode .close-sidebar {
+    color: #f0f0f0;
 }
 body.dark-mode .sidebar-nav a {
-  color: #f0f0f0;
+    color: #f0f0f0;
+}
+body.dark-mode .sidebar-icons {
+    border-top-color: #444;
 }
 body.dark-mode .sidebar-icons i {
-  color: #f0f0f0;
-}
+    /* Target all icons inside the sidebar-icons container */
+    color: #f0f0f0 !important; 
+} 
 
 /* Banner Section */
 section {

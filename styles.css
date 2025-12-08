@@ -117,7 +117,7 @@ body.dark-mode section .overlay p { color: #f0f0f0; }
     color: #333;
 }
 .sidebar-nav {
-    flex-grow: 1; /* Allows navigation to take up available space */
+    flex-grow: 1;
     background-color: inherit;
 }
 .sidebar-nav ul {
@@ -133,10 +133,10 @@ body.dark-mode section .overlay p { color: #f0f0f0; }
     color: #333;
     font-size: 16px;
     font-weight: 500;
-    display: block; /* Makes the whole area clickable */
+    display: block;
 }
 .sidebar-icons {
-    margin-top: auto; /* Push icons to the bottom */
+    margin-top: auto;
     padding: 16px 20px;
     border-top: 1px solid #eee;
     display: flex;
@@ -145,17 +145,13 @@ body.dark-mode section .overlay p { color: #f0f0f0; }
     background-color: inherit;
 }
 .sidebar-icons i {
-    color: #333; /* Default icon color */
+    color: #333; 
 }
 
-/* 3. MEDIA QUERIES (Mobile visibility logic) */
-
-/* Hide the menu button and show the desktop menu on screens >= 768px (md) */
 @media (min-width: 768px) {
     .sidebar {
-        display: none; /* Hide the mobile sidebar entirely */
+        display: none;
     }
-    /* Ensure the desktop navbar and icons are visible */
     .navbar, .icons {
         display: flex !important;
     }
@@ -164,7 +160,6 @@ body.dark-mode section .overlay p { color: #f0f0f0; }
     }
 }
 
-/* On screens < 768px, hide desktop menu and show mobile button */
 @media (max-width: 767px) {
     .navbar, .icons {
         display: none !important;
@@ -178,10 +173,8 @@ body.dark-mode section .overlay p { color: #f0f0f0; }
     }
 }
 
-/* 4. DARK MODE STYLES (CORRECTED) */
-
 body.dark-mode .sidebar {
-    background: #333; /* Using the slightly darker tone for sidebar body */
+    background: #333;
     color: #f0f0f0;
 }
 body.dark-mode .sidebar-header {
@@ -197,11 +190,9 @@ body.dark-mode .sidebar-icons {
     border-top-color: #444;
 }
 body.dark-mode .sidebar-icons i {
-    /* Target all icons inside the sidebar-icons container */
     color: #f0f0f0 !important; 
 } 
 
-/* Banner Section */
 section {
   display: flex;
   flex-wrap: wrap;
@@ -215,7 +206,7 @@ section .card {
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5);
   position: relative;
 }
-/* Overlay texts to be targeted in dark mode */
+
 section .overlay {
   position: absolute;
   left: 20px;
@@ -272,7 +263,6 @@ section .card:nth-child(3):hover {
   }
 }
 
-/* Product Heading */
 .product-h1{
     font-size:3rem; 
     font-family:'Poppins', sans-serif; 

@@ -52,7 +52,6 @@ body.dark-mode section .overlay p { color: #f0f0f0; }
   transform: translateY(-2px);
 }
 
-/* Icons */
 .icons {
   display: flex;
   gap: 20px;
@@ -82,21 +81,18 @@ body.dark-mode section .overlay p { color: #f0f0f0; }
     justify-content: space-between;
   }
 }
-/* 1. MOBILE SIDEBAR BASE STYLES (Slide-in from Right) */
 .sidebar {
     position: fixed;
     top: 0;
-    /* Start off-screen to the right (Adjust width if needed, e.g., 300px) */
     right: -320px; 
     width: 300px;
-    max-width: 90%; /* Safety check for very small screens */
+    max-width: 90%;
     height: 100vh;
     background: #fff;
     box-shadow: -4px 0 14px rgba(0, 0, 0, 0.15);
-    z-index: 2000; /* Ensure it's above everything else */
+    z-index: 2000; 
     display: flex;
     flex-direction: column;
-    /* Use 'right' for positioning and 'transform' for smooth movement */
     transition: right 0.4s ease, background-color 0.3s ease; 
 }
 
@@ -110,7 +106,7 @@ body.dark-mode section .overlay p { color: #f0f0f0; }
     justify-content: space-between;
     padding: 16px 20px;
     border-bottom: 1px solid #eee;
-    background-color: inherit; /* Inherit background for dark mode consistency */
+    background-color: inherit; 
 }
 
 .close-sidebar {
@@ -118,7 +114,7 @@ body.dark-mode section .overlay p { color: #f0f0f0; }
     border: none;
     font-size: 22px;
     cursor: pointer;
-    color: #333; /* Default icon color */
+    color: #333;
 }
 .sidebar-nav {
     flex-grow: 1; /* Allows navigation to take up available space */

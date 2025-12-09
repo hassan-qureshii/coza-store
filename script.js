@@ -321,7 +321,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const category = link.textContent.toLowerCase();
             const products = document.querySelectorAll('.product-card');
 
-            // Reset active link style
             filterLinks.forEach(l => l.style.fontWeight = 'normal');
             link.style.fontWeight = 'bold';
 

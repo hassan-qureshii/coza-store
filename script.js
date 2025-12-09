@@ -362,7 +362,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     addHoverZoom();
-
-    // Enable smooth scroll for all menu links
     enableSmoothScroll();
 });

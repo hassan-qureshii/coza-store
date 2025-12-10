@@ -313,8 +313,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // ===== SIMPLE PRODUCT FILTER (Existing) =====
-    const filterLinks = document.querySelectorAll('.filter-link');
+  const filterLinks = document.querySelectorAll('.filter-link');
     filterLinks.forEach(link => {
         link.addEventListener('click', e => {
             e.preventDefault();

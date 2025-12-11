@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeIcons = document.querySelectorAll('.theme-toggle'); // both header and sidebar
     const backToTopBtn = createBackToTopButton(); // Create and append the button
 
-    // Helper to get all elements that need to change in dark mode
     function getAllThemedElements() {
         return {
             header: document.querySelector('header'),

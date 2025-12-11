@@ -1,18 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // ===== ELEMENT SELECTIONS & SETUP =====
     const sidebar = document.querySelector('.sidebar');
     const menuBtn = document.querySelector('.menu-btn');
     const closeSidebarBtn = document.querySelector('.close-sidebar');
-    const themeIcons = document.querySelectorAll('.theme-toggle'); 
-    const backToTopBtn = createBackToTopButton();
+    const themeIcons = document.querySelectorAll('.theme-toggle'); // both header and sidebar
+    const backToTopBtn = createBackToTopButton(); // Create and append the button
 
+    // Helper to get all elements that need to change in dark mode
     function getAllThemedElements() {
         return {
             header: document.querySelector('header'),
+            // >>> NEW: Select the icon inside the menu button
             menuIcon: document.querySelector('.menu-btn i'), 
+            // >>> NEW: Select all icons inside the .icons container (excluding the theme toggle, which is handled separately)
             headerIcons: document.querySelectorAll('.icons i:not(.theme-toggle)'), 
-            heroTextContainers: document.querySelectorAll('.relative h4'), 
-            heroButton: document.querySelector('#home button'),
+            heroTextContainers: document.querySelectorAll('.relative h4'), // Target h4's in the hero
+            heroButton: document.querySelector('#home button'), // Target the Shop Now button
             overlayHeadings: document.querySelectorAll('section .overlay h2, section .overlay p'),
             productCards: document.querySelectorAll('.product-card'),
             filterLinks: document.querySelectorAll('.navbar-product a'),
@@ -23,8 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
+    // ===== DARK/LIGHT MODE LOGIC 🌙/☀️ =====
     const LIGHT_BG = '#fff';
-    const DARK_BG = '#2c2c2c';
+    const DARK_BG = '#2c2c2c'; // Lighter black
     const DARK_HEADER_FOOTER = '#333333';
     const LIGHT_HEADER_BG = '#EAE8E7';
 
@@ -37,29 +42,38 @@ document.addEventListener('DOMContentLoaded', () => {
         const headerEl = elements.header;
         const mainElements = document.querySelectorAll('main, body');
 
+        // Body and main background
         document.body.style.backgroundColor = isDark ? DARK_BG : LIGHT_BG;
         mainElements.forEach(el => el.style.backgroundColor = isDark ? DARK_BG : LIGHT_BG);
         document.body.style.color = isDark ? '#f0f0f0' : '#333';
 
+        // Header and Footer background
         if (headerEl) headerEl.style.backgroundColor = isDark ? DARK_HEADER_FOOTER : LIGHT_HEADER_BG;
         if (elements.footer) elements.footer.style.backgroundColor = isDark ? DARK_HEADER_FOOTER : '#f8f8f8';
         if (elements.lastDiv) elements.lastDiv.style.backgroundColor = isDark ? '#444' : '#e5e5e5';
 
+        // Text/Link Color
         elements.linksAndText.forEach(el => {
             el.style.color = isDark ? '#f0f0f0' : '#333';
         });
-        --
+        
+        // --- START OF NEW/UPDATED LOGIC ---
+
+        // NEW: Change Mobile Menu Button Icon Color
         if (elements.menuIcon) {
             elements.menuIcon.style.color = isDark ? '#f0f0f0' : '#000';
         }
 
         // Change Header Icons Color
         elements.headerIcons.forEach(icon => {
+            // Check if the icon is a filled heart (product card hearts are styled elsewhere)
             if (icon.classList.contains('fa-heart') && icon.classList.contains('fa-solid')) {
                 return; 
             }
             icon.style.color = isDark ? '#f0f0f0' : '#000';
         });
+
+        // --- END OF NEW/UPDATED LOGIC ---
 
         // Specific overrides for HERO BANNER TEXT 
         elements.heroTextContainers.forEach(h4 => {
@@ -68,28 +82,33 @@ document.addEventListener('DOMContentLoaded', () => {
                 h4.style.color = '#f0f0f0';
             } else {
                 h4.classList.add('text-black');
-                h4.style.color = '';
+                h4.style.color = ''; // Clear inline style
             }
         });
         
+        // Ensure the button text stays black for contrast
         if(elements.heroButton) {
              elements.heroButton.style.color = '#000';
         }
 
         elements.overlayHeadings.forEach(el => el.style.color = isDark ? '#f0f0f0' : '#111');
         
+        // Theme icon update
         themeIcons.forEach(icon => {
             icon.className = isDark ? 'fa-solid fa-sun theme-toggle' : 'fa-solid fa-moon theme-toggle';
             icon.style.color = isDark ? 'yellow' : 'black';
         });
 
+        // Back to top button style
         backToTopBtn.style.backgroundColor = isDark ? DARK_HEADER_FOOTER : '#f0f0f0';
         backToTopBtn.style.color = isDark ? '#fff' : '#000';
     }
 
+    // Load theme on startup
     const savedTheme = localStorage.getItem('theme');
     const isDarkMode = savedTheme === 'dark'; 
     
+    // Set initial state to Light Mode if no preference is saved (first time visit)
     if (savedTheme === null) {
         applyDarkModeStyles(false); 
     } else {
@@ -100,6 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
+    // Event listener for theme toggle
     themeIcons.forEach(icon => {
         icon.addEventListener('click', () => {
             const isCurrentlyDark = document.body.classList.contains('dark-mode');
@@ -110,6 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // ===== MOBILE SIDEBAR FIX ☰/✖️ (Existing) =====
     if (menuBtn && sidebar) {
         menuBtn.addEventListener('click', () => {
             sidebar.classList.add('open');
@@ -126,6 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Close sidebar when clicking outside (on the overlay)
     sidebar.addEventListener('click', (e) => {
         if (e.target === sidebar) {
             sidebar.classList.remove('open');
@@ -134,6 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // ===== HERO BUTTON SCROLL (Existing) =====
     const heroBtn = document.querySelector('#home button');
     if (heroBtn) {
         heroBtn.addEventListener('click', () => {

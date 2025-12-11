@@ -134,7 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // ===== HERO BUTTON SCROLL (Existing) =====
     const heroBtn = document.querySelector('#home button');
     if (heroBtn) {
         heroBtn.addEventListener('click', () => {

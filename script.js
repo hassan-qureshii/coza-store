@@ -1,21 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // ===== ELEMENT SELECTIONS & SETUP =====
     const sidebar = document.querySelector('.sidebar');
     const menuBtn = document.querySelector('.menu-btn');
     const closeSidebarBtn = document.querySelector('.close-sidebar');
-    const themeIcons = document.querySelectorAll('.theme-toggle'); // both header and sidebar
-    const backToTopBtn = createBackToTopButton(); // Create and append the button
+    const themeIcons = document.querySelectorAll('.theme-toggle'); 
+    const backToTopBtn = createBackToTopButton();
 
     function getAllThemedElements() {
         return {
             header: document.querySelector('header'),
-            // >>> NEW: Select the icon inside the menu button
             menuIcon: document.querySelector('.menu-btn i'), 
-            // >>> NEW: Select all icons inside the .icons container (excluding the theme toggle, which is handled separately)
             headerIcons: document.querySelectorAll('.icons i:not(.theme-toggle)'), 
-            heroTextContainers: document.querySelectorAll('.relative h4'), // Target h4's in the hero
-            heroButton: document.querySelector('#home button'), // Target the Shop Now button
+            heroTextContainers: document.querySelectorAll('.relative h4'), 
+            heroButton: document.querySelector('#home button'),
             overlayHeadings: document.querySelectorAll('section .overlay h2, section .overlay p'),
             productCards: document.querySelectorAll('.product-card'),
             filterLinks: document.querySelectorAll('.navbar-product a'),

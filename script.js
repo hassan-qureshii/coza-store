@@ -48,22 +48,18 @@ document.addEventListener('DOMContentLoaded', () => {
         elements.linksAndText.forEach(el => {
             el.style.color = isDark ? '#f0f0f0' : '#333';
         });
-        
-        // --- START OF NEW/UPDATED LOGIC ---
+        --
         if (elements.menuIcon) {
             elements.menuIcon.style.color = isDark ? '#f0f0f0' : '#000';
         }
 
         // Change Header Icons Color
         elements.headerIcons.forEach(icon => {
-            // Check if the icon is a filled heart (product card hearts are styled elsewhere)
             if (icon.classList.contains('fa-heart') && icon.classList.contains('fa-solid')) {
                 return; 
             }
             icon.style.color = isDark ? '#f0f0f0' : '#000';
         });
-
-        // --- END OF NEW/UPDATED LOGIC ---
 
         // Specific overrides for HERO BANNER TEXT 
         elements.heroTextContainers.forEach(h4 => {
@@ -72,33 +68,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 h4.style.color = '#f0f0f0';
             } else {
                 h4.classList.add('text-black');
-                h4.style.color = ''; // Clear inline style
+                h4.style.color = '';
             }
         });
         
-        // Ensure the button text stays black for contrast
         if(elements.heroButton) {
              elements.heroButton.style.color = '#000';
         }
 
         elements.overlayHeadings.forEach(el => el.style.color = isDark ? '#f0f0f0' : '#111');
         
-        // Theme icon update
         themeIcons.forEach(icon => {
             icon.className = isDark ? 'fa-solid fa-sun theme-toggle' : 'fa-solid fa-moon theme-toggle';
             icon.style.color = isDark ? 'yellow' : 'black';
         });
 
-        // Back to top button style
         backToTopBtn.style.backgroundColor = isDark ? DARK_HEADER_FOOTER : '#f0f0f0';
         backToTopBtn.style.color = isDark ? '#fff' : '#000';
     }
 
-    // Load theme on startup
     const savedTheme = localStorage.getItem('theme');
     const isDarkMode = savedTheme === 'dark'; 
     
-    // Set initial state to Light Mode if no preference is saved (first time visit)
     if (savedTheme === null) {
         applyDarkModeStyles(false); 
     } else {
@@ -109,7 +100,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // Event listener for theme toggle
     themeIcons.forEach(icon => {
         icon.addEventListener('click', () => {
             const isCurrentlyDark = document.body.classList.contains('dark-mode');
@@ -120,7 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ===== MOBILE SIDEBAR FIX ☰/✖️ (Existing) =====
     if (menuBtn && sidebar) {
         menuBtn.addEventListener('click', () => {
             sidebar.classList.add('open');
@@ -137,7 +126,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Close sidebar when clicking outside (on the overlay)
     sidebar.addEventListener('click', (e) => {
         if (e.target === sidebar) {
             sidebar.classList.remove('open');
